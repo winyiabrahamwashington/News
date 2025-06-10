@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechPulse | Your Technology News Hub</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #000000; /* Black */
+            --secondary-color: #FF0000; /* Red */
+            --accent-color: #FFD700; /* Yellow */
+            --dark-color: #212121;
+            --light-color: #ffffff; /* White */
+            --text-color: #333;
+            --text-light: #757575;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .date-display {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .social-icons a:hover {
+            color: var(--white);
+        }
+
+        .main-header {
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            width: 300px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 0.6rem;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 0 1rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--white);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent-color);
+        }
+
+        .nav-links li.active a {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 2rem;
+            color: var(--white);
+            max-width: 70%;
+        }
+
+        .hero-category {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-excerpt {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .news-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        .news-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .news-card:hover .news-card-img img {
+            transform: scale(1.05);
+        }
+
+        .news-card-content {
+            padding: 1.5rem;
+        }
+
+        .news-card-category {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .news-card-category.phones {
+            background-color: #4285F4; /* Blue */
+        }
+
+        .news-card-category.computing {
+            background-color: #EA4335; /* Red */
+        }
+
+        .news-card-category.software {
+            background-color: #FBBC05; /* Yellow */
+            color: var(--primary-color);
+        }
+
+        .news-card-category.ai {
+            background-color: #34A853; /* Green */
+        }
+
+        .news-card-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .news-card-excerpt {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .news-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #eee;
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+            color: var(--primary-color);
+        }
+
+        .trending-list {
+            list-style: none;
+        }
+
+        .trending-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+        }
+
+        .trending-item-img {
+            width: 80px;
+            height: 60px;
+            flex-shrink: 0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .trending-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .trending-item-content h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+        }
+
+        .trending-item-content span {
+            font-size: 0.7rem;
+            color: var(--text-light);
+        }
+
+        /* Top Stories Widget */
+        .top-stories-list {
+            list-style: none;
+        }
+
+        .top-story-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .top-story-item:last-child {
+            border-bottom: none;
+        }
+
+        .top-story-item h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .top-story-item h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 6px;
+            height: 6px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+        }
+
+        .top-story-item span {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            display: block;
+        }
+
+        /* Breaking News Ticker */
+        .breaking-news {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.8rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .breaking-news-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .breaking-news-label {
+            background-color: var(--primary-color);
+            padding: 0.3rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            color: var(--accent-color);
+        }
+
+        .ticker {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #bdbdbd;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #424242;
+            color: #bdbdbd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 350px;
+            }
+
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .hero-excerpt {
+                font-size: 1rem;
+            }
+
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="date-display">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container main-header">
+            <div class="header-content">
+                <div class="logo">Tech<span>Pulse</span></div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search tech news...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <div class="container">
+                <ul class="nav-links">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="localnews.html">Local News</a></li>
+                    <li><a href="worldnews.html">World News</a></li>
+                    <li><a href="sports.html">Sports</a></li>
+                    <li><a href="entertainment.html">Entertainment</a></li>
+                    <li><a href="business.html">Business</a></li>
+                    <li><a href="technology.html">Technology</a></li>
+                    <li><a href="health.html">Health</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breaking News Ticker -->
+    <div class="breaking-news">
+        <div class="container breaking-news-container">
+            <div class="breaking-news-label">Breaking</div>
+            <div class="ticker">
+                <div class="ticker-content">
+                    Apple announces iOS 18 with revolutionary AI features • Samsung unveils Galaxy Z Fold 6 with improved durability • Microsoft confirms Windows 12 release date • Nvidia's new AI chips break performance records • Tesla's humanoid robot begins factory testing • Google Pixel 9 leaks reveal major camera upgrade
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <div class="hero" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')">
+            <div class="hero-content">
+                <span class="hero-category">AI & Robotics</span>
+                <h1 class="hero-title">OpenAI's GPT-5 Shows 'Ph.D.-Level Intelligence' in Early Tests</h1>
+                <p class="hero-excerpt">The next-generation AI model demonstrates unprecedented reasoning capabilities, potentially revolutionizing education and research sectors.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- News Section -->
+        <div class="news-section">
+            <h2 class="section-title">Latest Tech News</h2>
+            <div class="news-grid">
+                <!-- News Card 1 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="iPhone 16">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category phones">Smartphones</span>
+                        <h3 class="news-card-title">iPhone 16 Pro Leak Reveals Revolutionary New Camera System</h3>
+                        <p class="news-card-excerpt">Apple's upcoming flagship may feature periscope zoom and improved low-light performance across all lenses.</p>
+                        <div class="news-card-meta">
+                            <span>By Michael Chen</span>
+                            <span>2 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 2 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Windows 12">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category software">Software</span>
+                        <h3 class="news-card-title">Windows 12 Preview Shows AI-Powered Interface and Features</h3>
+                        <p class="news-card-excerpt">Microsoft's next OS will include AI-assisted workflows, smart task automation, and enhanced security.</p>
+                        <div class="news-card-meta">
+                            <span>By Sarah Johnson</span>
+                            <span>5 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 3 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Quantum computer">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category computing">Computing</span>
+                        <h3 class="news-card-title">Quantum Computing Breakthrough Could Make Encryption Obsolete</h3>
+                        <p class="news-card-excerpt">Researchers achieve quantum supremacy with new 256-qubit processor that solves problems in minutes.</p>
+                        <div class="news-card-meta">
+                            <span>By Dr. Lisa Wong</span>
+                            <span>8 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 4 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tesla robot">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category ai">AI & Robotics</span>
+                        <h3 class="news-card-title">Tesla's Optimus Robot Now Walks, Talks, and Performs Simple Tasks</h3>
+                        <p class="news-card-excerpt">Elon Musk demonstrates humanoid robot making coffee and folding laundry in latest prototype.</p>
+                        <div class="news-card-meta">
+                            <span>By David Chen</span>
+                            <span>12 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 5 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="VR headset">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category">Gadgets</span>
+                        <h3 class="news-card-title">Apple Vision Pro 2 Rumored to Feature Revolutionary Display Tech</h3>
+                        <p class="news-card-excerpt">Next-gen AR/VR headset may use microLED displays for improved brightness and battery life.</p>
+                        <div class="news-card-meta">
+                            <span>By Emma Wilson</span>
+                            <span>1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 6 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Gaming console">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category">Gaming</span>
+                        <h3 class="news-card-title">Next-Gen PlayStation and Xbox Consoles to Launch in 2026</h3>
+                        <p class="news-card-excerpt">Industry insiders reveal both companies are targeting 8K resolution and advanced AI upscaling.</p>
+                        <div class="news-card-meta">
+                            <span>By James Rodriguez</span>
+                            <span>1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Trending Now Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Trending Now</h3>
+                <ul class="trending-list">
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Foldable phone">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Samsung's Galaxy Z Fold 6 Leaks Show Wider Cover Screen</h4>
+                            <span>8,742 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="AI chip">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Nvidia's New AI Chips Break All Performance Records</h4>
+                            <span>7,215 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Gaming laptop">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Asus ROG Announces World's First 240Hz OLED Gaming Laptop</h4>
+                            <span>6,897 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="AI robot">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Google's New AI Assistant Can Make Phone Calls for You</h4>
+                            <span>5,542 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Smartwatch">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Apple Watch X Rumored to Feature Blood Pressure Monitoring</h4>
+                            <span>4,126 shares</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Top Stories Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Top Stories</h3>
+                <ul class="top-stories-list">
+                    <li class="top-story-item">
+                        <h4>Microsoft Confirms Windows 12 Release for Fall 2024</h4>
+                        <span>Software • 3,245 views</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Elon Musk's Neuralink Implants First Human Brain Chip</h4>
+                        <span>AI • 2,987 views</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Google Pixel 9 Pro Leaks Show Redesigned Camera Bar</h4>
+                        <span>Smartphones • 4,341 views</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>AMD's New Ryzen CPUs Challenge Intel's Dominance</h4>
+                        <span>Computing • 2,756 views</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Meta's AR Glasses Enter Final Testing Phase</h4>
+                        <span>Gadgets • 3,532 views</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Tech Deals Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Today's Best Deals</h3>
+                <ul class="top-stories-list">
+                    <li class="top-story-item">
+                        <h4>MacBook Air M2 Discounted to $899 (Save $200)</h4>
+                        <span>Amazon • Limited time</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Samsung Galaxy S23 Ultra - $300 Off</h4>
+                        <span>Best Buy • Today only</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Bose QuietComfort 45 Headphones - 40% Off</h4>
+                        <span>Bose • 12 hours left</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Microsoft Office 2021 Lifetime License - $49</h4>
+                        <span>StackSocial • 500 codes left</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>PlayStation 5 Bundle with 2 Games - $499</h4>
+                        <span>Walmart • While supplies last</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smartphone Reviews Section -->
+    <div class="container">
+        <h2 class="section-title">Smartphone Reviews</h2>
+        <div class="news-grid">
+            <!-- Review Card 1 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1605170439002-90845e8c0137?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="iPhone 15 Pro">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category phones">Review</span>
+                    <h3 class="news-card-title">iPhone 15 Pro Max Review: The Best Gets Better</h3>
+                    <p class="news-card-excerpt">Apple's latest flagship delivers with titanium design, periscope zoom, and USB-C - but is it worth the upgrade?</p>
+                    <div class="news-card-meta">
+                        <span>By Michael Chen</span>
+                        <span>3 days ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review Card 2 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1610792516307-ea5acd9c3b00?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Samsung S23 Ultra">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category phones">Review</span>
+                    <h3 class="news-card-title">Samsung Galaxy S23 Ultra: Still the Android King?</h3>
+                    <p class="news-card-excerpt">With 200MP camera and Snapdragon 8 Gen 2, Samsung's powerhouse continues to impress.</p>
+                    <div class="news-card-meta">
+                        <span>By Sarah Johnson</span>
+                        <span>1 week ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Review Card 3 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1664478546384-d57ffe74a78c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Google Pixel 8 Pro">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category phones">Review</span>
+                    <h3 class="news-card-title">Google Pixel 8 Pro: AI-Powered Photography Champion</h3>
+                    <p class="news-card-excerpt">Google's latest proves computational photography can compete with hardware giants.</p>
+                    <div class="news-card-meta">
+                        <span>By David Chen</span>
+                        <span>2 weeks ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gaming Section -->
+    <div class="container">
+        <h2 class="section-title">Gaming News</h2>
+        <div class="news-grid">
+            <!-- Gaming Card 1 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Gaming console">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category">Gaming</span>
+                    <h3 class="news-card-title">PlayStation 5 Pro Leaks Suggest 4K/120FPS Gaming</h3>
+                    <p class="news-card-excerpt">Sony's mid-gen refresh may feature upgraded GPU and AI-powered upscaling technology.</p>
+                    <div class="news-card-meta">
+                        <span>By James Rodriguez</span>
+                        <span>1 day ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gaming Card 2 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="VR gaming">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category">Gaming</span>
+                    <h3 class="news-card-title">Meta Quest 3 Review: The Best VR Gets More Affordable</h3>
+                    <p class="news-card-excerpt">With improved resolution and mixed reality, Quest 3 sets new standard for standalone VR.</p>
+                    <div class="news-card-meta">
+                        <span>By Emma Wilson</span>
+                        <span>3 days ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gaming Card 3 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Game controller">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category">Gaming</span>
+                    <h3 class="news-card-title">Nintendo Switch 2: Everything We Know About the Next Console</h3>
+                    <p class="news-card-excerpt">Leaks suggest 4K output, improved battery life, and backward compatibility.</p>
+                    <div class="news-card-meta">
+                        <span>By Tyler Reed</span>
+                        <span>1 week ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TechPulse</h3>
+                    <p>Your premier source for the latest in technology news, reviews, and analysis. Covering everything from smartphones to AI since 2015.</p>
+                    <div class="social-icons" style="margin-top: 1rem;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Smartphones</a></li>
+                        <li><a href="#">Computers</a></li>
+                        <li><a href="#">Software</a></li>
+                        <li><a href="#">AI & Robotics</a></li>
+                        <li><a href="#">Gadgets</a></li>
+                        <li><a href="#">Gaming</a></li>
+                        <li><a href="#">Reviews</a></li>
+                        <li><a href="#">Deals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Advertise</a></li>
+                        <li><a href="#">Ethics Policy</a></li>
+                        <li><a href="#">Corrections</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletters</h3>
+                    <p>Get the latest tech news delivered to your inbox daily.</p>
+                    <form style="margin-top: 1rem;">
+                        <input type="email" placeholder="Your email address" style="width: 100%; padding: 0.6rem; border: 1px solid #424242; background: transparent; color: white; border-radius: 4px; margin-bottom: 0.5rem;">
+                        <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 TechPulse. All rights reserved. All stories, photos, videos and graphics are property of TechPulse unless otherwise noted.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // Current Date and Time
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', options);
+            document.getElementById('current-time').textContent = now.toLocaleTimeString('en-US');
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // Simple search functionality
+        document.querySelector('.search-bar button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-bar input').value;
+            if (searchTerm.trim() !== '') {
+                alert(`Searching for: ${searchTerm}`);
+                // In a real implementation, this would redirect to search results
+            }
+        });
+
+        // Make news cards clickable
+        document.querySelectorAll('.news-card').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function() {
+                // In a real implementation, this would redirect to the article page
+                alert(`Navigating to: ${this.querySelector('.news-card-title').textContent}`);
+            });
+        });
+
+        // Mobile menu toggle (would be more comprehensive in a real implementation)
+        function handleMobileMenu() {
+            if (window.innerWidth < 768) {
+                // Mobile-specific adjustments could go here
+            }
+        }
+
+        window.addEventListener('resize', handleMobileMenu);
+        handleMobileMenu();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UgandaNewsHalo | Uganda's Premier News Source</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #000000; /* Black */
+            --secondary-color: #FF0000; /* Red */
+            --accent-color: #FFD700; /* Yellow */
+            --dark-color: #212121;
+            --light-color: #ffffff; /* White */
+            --text-color: #333;
+            --text-light: #757575;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .date-display {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .social-icons a:hover {
+            color: var(--white);
+        }
+
+        .main-header {
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            width: 300px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 0.6rem;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 0 1rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--white);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent-color);
+        }
+
+        .nav-links li.active a {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 2rem;
+            color: var(--white);
+            max-width: 70%;
+        }
+
+        .hero-category {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-excerpt {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .news-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        .news-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .news-card:hover .news-card-img img {
+            transform: scale(1.05);
+        }
+
+        .news-card-content {
+            padding: 1.5rem;
+        }
+
+        .news-card-category {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .news-card-category.politics {
+            background-color: #9c27b0;
+        }
+
+        .news-card-category.features {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .news-card-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .news-card-excerpt {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .news-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #eee;
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+            color: var(--primary-color);
+        }
+
+        .trending-list {
+            list-style: none;
+        }
+
+        .trending-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+        }
+
+        .trending-item-img {
+            width: 80px;
+            height: 60px;
+            flex-shrink: 0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .trending-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .trending-item-content h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+        }
+
+        .trending-item-content span {
+            font-size: 0.7rem;
+            color: var(--text-light);
+        }
+
+        /* Top Stories Widget */
+        .top-stories-list {
+            list-style: none;
+        }
+
+        .top-story-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .top-story-item:last-child {
+            border-bottom: none;
+        }
+
+        .top-story-item h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .top-story-item h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 6px;
+            height: 6px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+        }
+
+        .top-story-item span {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            display: block;
+        }
+
+        /* Breaking News Ticker */
+        .breaking-news {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.8rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .breaking-news-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .breaking-news-label {
+            background-color: var(--primary-color);
+            padding: 0.3rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            color: var(--accent-color);
+        }
+
+        .ticker {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #bdbdbd;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #424242;
+            color: #bdbdbd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 350px;
+            }
+
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .hero-excerpt {
+                font-size: 1rem;
+            }
+
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="date-display">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container main-header">
+            <div class="header-content">
+                <div class="logo">Uganda<span>NewsHalo</span></div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search Uganda news...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <div class="container">
+                <ul class="nav-links">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="localnews.html">Local News</a></li>
+                    <li><a href="worldnews.html">World News</a></li>
+                    <li><a href="sports.html">Sports</a></li>
+                    <li><a href="entertainment.html">Entertainment</a></li>
+                    <li><a href="business.html">Business</a></li>
+                    <li><a href="technology.html">Technology</a></li>
+                    <li><a href="health.html">Health</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breaking News Ticker -->
+    <div class="breaking-news">
+        <div class="container breaking-news-container">
+            <div class="breaking-news-label">Breaking</div>
+            <div class="ticker">
+                <div class="ticker-content">
+                    President Museveni to address nation tonight on economic measures • Parliament passes controversial land amendment bill • Kampala City Council announces new traffic measures effective Monday • Uganda Cranes qualify for AFCON quarterfinals • Major corruption scandal uncovered in Ministry of Health
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <div class="hero" style="background-image: url('https://images.unsplash.com/photo-1622035505146-2994fdaef8e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')">
+            <div class="hero-content">
+                <span class="hero-category">Politics</span>
+                <h1 class="hero-title">President Museveni Announces Cabinet Reshuffle Amid Growing Economic Concerns</h1>
+                <p class="hero-excerpt">The long-serving leader makes sweeping changes to his cabinet, replacing 10 ministers as the country faces inflation and currency challenges.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- News Section -->
+        <div class="news-section">
+            <h2 class="section-title">Uganda Today</h2>
+            <div class="news-grid">
+                <!-- News Card 1 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Parliament">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category politics">Politics</span>
+                        <h3 class="news-card-title">Opposition MPs Walk Out of Parliament Over Controversial Security Bill</h3>
+                        <p class="news-card-excerpt">The heated debate over the new security measures led to dramatic scenes in the chambers as opposition leaders called it "an attack on democracy."</p>
+                        <div class="news-card-meta">
+                            <span>By David Muwanga</span>
+                            <span>2 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 2 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Farmers">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category features">Features</span>
+                        <h3 class="news-card-title">Coffee Farmers in Western Uganda Adapt to Climate Change With New Techniques</h3>
+                        <p class="news-card-excerpt">Innovative agricultural practices are helping small-scale farmers maintain yields despite unpredictable weather patterns.</p>
+                        <div class="news-card-meta">
+                            <span>By Sarah Nalwoga</span>
+                            <span>5 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 3 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Hospital">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category">Human Interest</span>
+                        <h3 class="news-card-title">Mbarara Hospital's Neonatal Unit Saves Record Number of Premature Babies</h3>
+                        <p class="news-card-excerpt">Despite limited resources, the dedicated medical team has reduced infant mortality by 40% through innovative care techniques.</p>
+                        <div class="news-card-meta">
+                            <span>By Dr. James Kato</span>
+                            <span>8 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 4 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Oil refinery">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category">Economy</span>
+                        <h3 class="news-card-title">Uganda's Oil Project Faces Delays as Final Investment Decision Pushed to 2024</h3>
+                        <p class="news-card-excerpt">Government officials cite global market conditions and environmental concerns for the postponement of the $10 billion project.</p>
+                        <div class="news-card-meta">
+                            <span>By Patricia Ahimbisibwe</span>
+                            <span>12 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 5 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="School">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category features">Features</span>
+                        <h3 class="news-card-title">Rural School in Nakaseke District Achieves 100% Pass Rate Against All Odds</h3>
+                        <p class="news-card-excerpt">With no electricity and few textbooks, this community-built school has become an academic powerhouse through teacher dedication.</p>
+                        <div class="news-card-meta">
+                            <span>By Rebecca Nalule</span>
+                            <span>1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 6 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Court">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category politics">Politics</span>
+                        <h3 class="news-card-title">Constitutional Court to Rule on Age Limit Petition Next Week</h3>
+                        <p class="news-card-excerpt">The landmark case challenging the 2017 constitutional amendment could have far-reaching implications for Uganda's political landscape.</p>
+                        <div class="news-card-meta">
+                            <span>By Michael Mubangizi</span>
+                            <span>1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Trending Now Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Trending Now</h3>
+                <ul class="trending-list">
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Kampala's New Flyover Project Faces Delays as Contractors Miss Deadline</h4>
+                            <span>5,482 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Uganda Cranes Captain Announces International Retirement After AFCON</h4>
+                            <span>4,215 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Traditional Healers in Busoga Claim Breakthrough in Ebola Treatment</h4>
+                            <span>3,897 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Makerere University Introduces New Courses in Artificial Intelligence</h4>
+                            <span>3,542 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Controversial Social Media Tax to Be Reviewed, Says Finance Minister</h4>
+                            <span>3,126 shares</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Top Stories Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Top Political Stories</h3>
+                <ul class="top-stories-list">
+                    <li class="top-story-item">
+                        <h4>NRM Primaries: Several Incumbent MPs Lose in Surprise Results</h4>
+                        <span>Politics • 1,245 views</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Opposition Leaders Form New Coalition Ahead of 2026 Elections</h4>
+                        <span>Politics • 987 views</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Parliament Approves Shs72 Trillion Budget Amid Opposition Criticism</h4>
+                        <span>Economy • 2,341 views</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Lukwago Re-elected as Kampala Lord Mayor for Third Term</h4>
+                        <span>Local • 756 views</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Government Defends New Mining Regulations as Investors Express Concerns</h4>
+                        <span>Business • 1,532 views</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Weather Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Kampala Weather</h3>
+                <div id="weather-widget" style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="font-size: 3rem; color: var(--accent-color);">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <div>
+                        <div style="font-size: 1.5rem; font-weight: 600;">24°C</div>
+                        <div style="font-size: 0.9rem; color: var(--text-light);">Partly Cloudy, Kampala</div>
+                        <div style="font-size: 0.8rem; color: var(--text-light);">H: 27° L: 20°</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Human Interest Section -->
+    <div class="container">
+        <h2 class="section-title">Human Interest</h2>
+        <div class="news-grid">
+            <!-- Human Interest Card 1 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Teacher">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category">Human Interest</span>
+                    <h3 class="news-card-title">Retired Teacher in Gulu Transforms Village With Free Evening Classes</h3>
+                    <p class="news-card-excerpt">For 15 years, 72-year-old Opiyo has been educating children and adults alike under mango trees, creating a literacy revolution in his community.</p>
+                    <div class="news-card-meta">
+                        <span>By Grace Amito</span>
+                        <span>6 hours ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Human Interest Card 2 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Women">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category">Human Interest</span>
+                    <h3 class="news-card-title">Women's Cooperative in Karamoja Turns Beads Into Global Business</h3>
+                    <p class="news-card-excerpt">From a small village project to international exports, these artisans are preserving culture while achieving financial independence.</p>
+                    <div class="news-card-meta">
+                        <span>By Sarah Nalwanga</span>
+                        <span>10 hours ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Human Interest Card 3 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Doctor">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category">Human Interest</span>
+                    <h3 class="news-card-title">Ugandan Doctor Returns From UK to Establish Rural Cancer Center</h3>
+                    <p class="news-card-excerpt">Dr. Nakimuli gave up a lucrative London practice to bring specialized care to her home district where patients previously traveled 300km for treatment.</p>
+                    <div class="news-card-meta">
+                        <span>By Dr. Robert Ssebunya</span>
+                        <span>1 day ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Breaking News Section -->
+    <div class="container">
+        <h2 class="section-title">Latest Updates</h2>
+        <div class="news-grid">
+            <!-- Breaking News Card 1 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Police">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category">Breaking News</span>
+                    <h3 class="news-card-title">Police Arrest 15 in Kampala Over Alleged Terror Plot</h3>
+                    <p class="news-card-excerpt">Security forces say they've disrupted a planned attack on city centers, recovering explosives and weapons in overnight raids.</p>
+                    <div class="news-card-meta">
+                        <span>By Joseph Kigozi</span>
+                        <span>4 hours ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Breaking News Card 2 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Shilling">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category">Breaking News</span>
+                    <h3 class="news-card-title">Uganda Shilling Hits Record Low Against Dollar</h3>
+                    <p class="news-card-excerpt">Central Bank announces emergency measures as currency depreciates to 3,850 per dollar, sparking inflation fears.</p>
+                    <div class="news-card-meta">
+                        <span>By Patricia Ahimbisibwe</span>
+                        <span>9 hours ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Breaking News Card 3 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bus accident">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category">Breaking News</span>
+                    <h3 class="news-card-title">Bus Accident on Kampala-Masaka Highway Leaves 12 Dead</h3>
+                    <p class="news-card-excerpt">Police blame speeding and poor road conditions for the early morning crash that also injured 30 passengers.</p>
+                    <div class="news-card-meta">
+                        <span>By Michael Odeng</span>
+                        <span>1 day ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>UgandaNewsHalo</h3>
+                    <p>Uganda's most trusted source for comprehensive news coverage. Delivering accurate, timely, and engaging content about our nation.</p>
+                    <div class="social-icons" style="margin-top: 1rem;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Politics</a></li>
+                        <li><a href="#">Breaking News</a></li>
+                        <li><a href="#">Human Interest</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Economy</a></li>
+                        <li><a href="#">Regions</a></li>
+                        <li><a href="#">Opinion</a></li>
+                        <li><a href="#">Investigative</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Advertise</a></li>
+                        <li><a href="#">Ethics Policy</a></li>
+                        <li><a href="#">Corrections</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletters</h3>
+                    <p>Stay updated with Uganda's daily news briefing delivered straight to your inbox.</p>
+                    <form style="margin-top: 1rem;">
+                        <input type="email" placeholder="Your email address" style="width: 100%; padding: 0.6rem; border: 1px solid #424242; background: transparent; color: white; border-radius: 4px; margin-bottom: 0.5rem;">
+                        <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 UgandaNewsHalo. All rights reserved. All stories, photos, videos and graphics are property of UgandaNewsHalo unless otherwise noted.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // Current Date and Time
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', options);
+            document.getElementById('current-time').textContent = now.toLocaleTimeString('en-US');
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // Simple search functionality
+        document.querySelector('.search-bar button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-bar input').value;
+            if (searchTerm.trim() !== '') {
+                alert(`Searching Uganda news for: ${searchTerm}`);
+                // In a real implementation, this would redirect to search results
+            }
+        });
+
+        // Make news cards clickable
+        document.querySelectorAll('.news-card').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function() {
+                // In a real implementation, this would redirect to the article page
+                alert(`Navigating to: ${this.querySelector('.news-card-title').textContent}`);
+            });
+        });
+
+        // Mobile menu toggle (would be more comprehensive in a real implementation)
+        function handleMobileMenu() {
+            if (window.innerWidth < 768) {
+                // Mobile-specific adjustments could go here
+            }
+        }
+
+        window.addEventListener('resize', handleMobileMenu);
+        handleMobileMenu();
+    </script>
+</body>
+</html>

@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CelebHaloUG | Your Celebrity News Hub</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #000000; /* Black */
+            --secondary-color: #FF0000; /* Red */
+            --accent-color: #FFD700; /* Yellow */
+            --dark-color: #212121;
+            --light-color: #ffffff; /* White */
+            --text-color: #333;
+            --text-light: #757575;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .date-display {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .social-icons a:hover {
+            color: var(--white);
+        }
+
+        .main-header {
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            width: 300px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 0.6rem;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 0 1rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--white);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent-color);
+        }
+
+        .nav-links li.active a {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 2rem;
+            color: var(--white);
+            max-width: 70%;
+        }
+
+        .hero-category {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-excerpt {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .news-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        .news-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .news-card:hover .news-card-img img {
+            transform: scale(1.05);
+        }
+
+        .news-card-content {
+            padding: 1.5rem;
+        }
+
+        .news-card-category {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .news-card-category.music {
+            background-color: #9c27b0;
+        }
+
+        .news-card-category.movies {
+            background-color: #2196F3;
+        }
+
+        .news-card-category.fashion {
+            background-color: #FF9800;
+        }
+
+        .news-card-category.uganda {
+            background-color: #4CAF50;
+        }
+
+        .news-card-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .news-card-excerpt {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .news-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #eee;
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+            color: var(--primary-color);
+        }
+
+        .trending-list {
+            list-style: none;
+        }
+
+        .trending-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+        }
+
+        .trending-item-img {
+            width: 80px;
+            height: 60px;
+            flex-shrink: 0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .trending-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .trending-item-content h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+        }
+
+        .trending-item-content span {
+            font-size: 0.7rem;
+            color: var(--text-light);
+        }
+
+        /* Top Stories Widget */
+        .top-stories-list {
+            list-style: none;
+        }
+
+        .top-story-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .top-story-item:last-child {
+            border-bottom: none;
+        }
+
+        .top-story-item h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .top-story-item h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 6px;
+            height: 6px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+        }
+
+        .top-story-item span {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            display: block;
+        }
+
+        /* Breaking News Ticker */
+        .breaking-news {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.8rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .breaking-news-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .breaking-news-label {
+            background-color: var(--primary-color);
+            padding: 0.3rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            color: var(--accent-color);
+        }
+
+        .ticker {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #bdbdbd;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #424242;
+            color: #bdbdbd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 350px;
+            }
+
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .hero-excerpt {
+                font-size: 1rem;
+            }
+
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="date-display">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container main-header">
+            <div class="header-content">
+                <div class="logo">Celeb<span>HaloUG</span></div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for celebrity news...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <div class="container">
+                <ul class="nav-links">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="localnews.html">Local News</a></li>
+                    <li><a href="worldnews.html">World News</a></li>
+                    <li><a href="sports.html">Sports</a></li>
+                    <li><a href="entertainment.html">Entertainment</a></li>
+                    <li><a href="business.html">Business</a></li>
+                    <li><a href="technology.html">Technology</a></li>
+                    <li><a href="health.html">Health</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breaking News Ticker -->
+    <div class="breaking-news">
+        <div class="container breaking-news-container">
+            <div class="breaking-news-label">Breaking</div>
+            <div class="ticker">
+                <div class="ticker-content">
+                    Ugandan singer Eddy Kenzo announces surprise album drop next week • Taylor Swift and Travis Kelce spotted kissing at after-party • Sheebah Karungi's fashion line breaks sales records • Chris Brown Uganda concert cancelled • Bebe Cool and Chameleone feud escalates on social media • New Marvel movie breaks box office records
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <div class="hero" style="background-image: url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')">
+            <div class="hero-content">
+                <span class="hero-category">Exclusive</span>
+                <h1 class="hero-title">Uganda's Sheebah Karungi Makes Hollywood Debut in Major Action Film</h1>
+                <p class="hero-excerpt">The singer-turned-actress shares exclusive details about her role alongside A-list stars and how she's breaking barriers for African entertainers.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- News Section -->
+        <div class="news-section">
+            <h2 class="section-title">Latest Celebrity Gossip</h2>
+            <div class="news-grid">
+                <!-- News Card 1 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Celebrity couple">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category">International Stars</span>
+                        <h3 class="news-card-title">Are They Back Together? Spotted Holding Hands Months After Breakup</h3>
+                        <p class="news-card-excerpt">The celebrity couple that broke fans' hearts earlier this year was seen looking cozy at a private event in Malibu.</p>
+                        <div class="news-card-meta">
+                            <span>By Ryan Gomez</span>
+                            <span>2 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 2 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Music star">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category music">Music News</span>
+                        <h3 class="news-card-title">Eddy Kenzo's Surprising Career Shift: From Music to Tech Entrepreneur</h3>
+                        <p class="news-card-excerpt">The BET award winner announces new startup focused on music education technology across Africa.</p>
+                        <div class="news-card-meta">
+                            <span>By Tyler Reed</span>
+                            <span>5 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 3 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Fashion">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category fashion">Fashion</span>
+                        <h3 class="news-card-title">Judith Heard Stuns in Ugandan Designer's Creation at Paris Fashion Week</h3>
+                        <p class="news-card-excerpt">The model turned heads in a bold Ankara-inspired gown that's already getting international attention.</p>
+                        <div class="news-card-meta">
+                            <span>By Emma Wilson</span>
+                            <span>8 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 4 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Celebrity event">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category uganda">Uganda Celebrities</span>
+                        <h3 class="news-card-title">Full List: Who Wore What at Cindy's Star-Studded Kampala Birthday Bash</h3>
+                        <p class="news-card-excerpt">The socialite's annual party was the place to be, with surprise performances and fashion moments galore.</p>
+                        <div class="news-card-meta">
+                            <span>By Sarah Johnson</span>
+                            <span>12 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 5 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Movie premiere">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category movies">Movies & TV</span>
+                        <h3 class="news-card-title">New Nollywood-Uganda Collaboration Film Breaks Streaming Records</h3>
+                        <p class="news-card-excerpt">"The Crossroads" starring Ugandan actors becomes most-watched African film on Netflix in first week.</p>
+                        <div class="news-card-meta">
+                            <span>By David Chen</span>
+                            <span>1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 6 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Music concert">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category music">Music News</span>
+                        <h3 class="news-card-title">Bobi Wine Announces Massive Homecoming Concert After World Tour</h3>
+                        <p class="news-card-excerpt">The singer-turned-politician will perform at Namboole Stadium with special international guests.</p>
+                        <div class="news-card-meta">
+                            <span>By Michael Brown</span>
+                            <span>1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Trending Now Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Trending Now</h3>
+                <ul class="trending-list">
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Royal Family Drama: Prince Harry and Meghan Markle's Latest Interview Causes Uproar</h4>
+                            <span>5,482 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Spice Diana's Secret Wedding? Cryptic Posts Spark Rumors</h4>
+                            <span>4,215 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Zari Hassan Buys $3M Mansion in South Africa: Exclusive Photos</h4>
+                            <span>3,897 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>New Photos: Pallaso's Dramatic Transformation After Surgery</h4>
+                            <span>3,542 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Beyoncé Announces African Tour Dates - Uganda Included!</h4>
+                            <span>3,126 shares</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Top Stories Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Top Stories</h3>
+                <ul class="top-stories-list">
+                    <li class="top-story-item">
+                        <h4>Exclusive: Inside Jose Chameleone and Daniella's Marriage Crisis</h4>
+                        <span>Uganda Celebrities • 1,245 views</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>FULL LIST: Winners at the 2023 Uganda Music Awards</h4>
+                        <span>Music News • 987 views</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Photos: How Ugandan Celebrities Celebrated Independence Day</h4>
+                        <span>Events • 2,341 views</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Breaking: Chris Evans Dating Ugandan Actress?</h4>
+                        <span>International Stars • 756 views</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Sheebah Karungi Launches Beauty Line - First Products Revealed</h4>
+                        <span>Fashion • 1,532 views</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- New Releases Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">New Releases</h3>
+                <ul class="top-stories-list">
+                    <li class="top-story-item">
+                        <h4>ALBUM: Eddy Kenzo - "African Dream" (Out Now)</h4>
+                        <span>Music • Just Released</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>MOVIE: "The Pearl of Africa" (Now Streaming)</h4>
+                        <span>Netflix • Ugandan Film</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>SINGLE: Vinka ft. Diamond Platnumz - "Number One"</h4>
+                        <span>Music • East African Collabo</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>SERIES: "The Real Housewives of Kampala" Season 3</h4>
+                        <span>Showmax • New Episodes</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>ALBUM: Travis Scott - "Utopia" (International)</h4>
+                        <span>Music • Global Release</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ugandan Celebrities Section -->
+    <div class="container">
+        <h2 class="section-title">Uganda Celebrities</h2>
+        <div class="news-grid">
+            <!-- Celebrity Card 1 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Ugandan celebrity">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category uganda">Exclusive</span>
+                    <h3 class="news-card-title">Cindy's Shocking Confession: "Why I Left My Husband for a Younger Man"</h3>
+                    <p class="news-card-excerpt">The socialite opens up in her most candid interview yet about love, money, and her controversial life choices.</p>
+                    <div class="news-card-meta">
+                        <span>By Jessica Parker</span>
+                        <span>6 hours ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Celebrity Card 2 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Celebrity couple">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category uganda">Music News</span>
+                    <h3 class="news-card-title">Bebe Cool vs Chameleone: The Full Story Behind Their Feud</h3>
+                    <p class="news-card-excerpt">Insiders reveal what really caused the latest war of words between Uganda's music giants.</p>
+                    <div class="news-card-meta">
+                        <span>By Ryan Gomez</span>
+                        <span>10 hours ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Celebrity Card 3 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Music star">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category uganda">Fashion</span>
+                    <h3 class="news-card-title">Judith Heard Launches Affordable Fashion Line for Ugandan Women</h3>
+                    <p class="news-card-excerpt">"I want every girl to feel beautiful" - supermodel expands empire with budget-friendly collection.</p>
+                    <div class="news-card-meta">
+                        <span>By Tyler Reed</span>
+                        <span>1 day ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- International Stars Section -->
+    <div class="container">
+        <h2 class="section-title">International Stars</h2>
+        <div class="news-grid">
+            <!-- Celebrity Card 1 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="International celebrity">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category">Hollywood</span>
+                    <h3 class="news-card-title">Brad Pitt and Jennifer Aniston: Secret Reunion in Paris?</h3>
+                    <p class="news-card-excerpt">Fans go wild after spotting the exes having dinner together at exclusive restaurant.</p>
+                    <div class="news-card-meta">
+                        <span>By Marcus Williams</span>
+                        <span>4 hours ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Celebrity Card 2 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Music star">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category music">Music News</span>
+                    <h3 class="news-card-title">Beyoncé's Renaissance Tour: The Most Extravagant Moments</h3>
+                    <p class="news-card-excerpt">From $1M stage costumes to surprise guests, we break down Queen Bey's most lavish tour yet.</p>
+                    <div class="news-card-meta">
+                        <span>By James Wilson</span>
+                        <span>9 hours ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Celebrity Card 3 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Actress">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category movies">Movies & TV</span>
+                    <h3 class="news-card-title">Lupita Nyong'o to Produce and Star in New African Folklore Series</h3>
+                    <p class="news-card-excerpt">The Oscar winner returns to her roots with Netflix project showcasing African storytelling traditions.</p>
+                    <div class="news-card-meta">
+                        <span>By Lisa Chen</span>
+                        <span>1 day ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CelebHaloUG</h3>
+                    <p>Your ultimate source for celebrity news, gossip, and entertainment from Uganda and around the world. Bringing you exclusive scoops and behind-the-scenes access.</p>
+                    <div class="social-icons" style="margin-top: 1rem;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Uganda Celebrities</a></li>
+                        <li><a href="#">International Stars</a></li>
+                        <li><a href="#">Music News</a></li>
+                        <li><a href="#">Movies & TV</a></li>
+                        <li><a href="#">Fashion</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">Exclusives</a></li>
+                        <li><a href="#">Interviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Advertise</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Ethics Policy</a></li>
+                        <li><a href="#">Corrections</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletters</h3>
+                    <p>Get daily celebrity updates straight to your inbox. Never miss a gossip!</p>
+                    <form style="margin-top: 1rem;">
+                        <input type="email" placeholder="Your email address" style="width: 100%; padding: 0.6rem; border: 1px solid #424242; background: transparent; color: white; border-radius: 4px; margin-bottom: 0.5rem;">
+                        <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CelebHaloUG. All rights reserved. All stories, photos, videos and graphics are property of CelebHaloUG unless otherwise noted.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // Current Date and Time
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', options);
+            document.getElementById('current-time').textContent = now.toLocaleTimeString('en-US');
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // Simple search functionality
+        document.querySelector('.search-bar button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-bar input').value;
+            if (searchTerm.trim() !== '') {
+                alert(`Searching for: ${searchTerm}`);
+                // In a real implementation, this would redirect to search results
+            }
+        });
+
+        // Make news cards clickable
+        document.querySelectorAll('.news-card').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function() {
+                // In a real implementation, this would redirect to the article page
+                alert(`Navigating to: ${this.querySelector('.news-card-title').textContent}`);
+            });
+        });
+
+        // Mobile menu toggle (would be more comprehensive in a real implementation)
+        function handleMobileMenu() {
+            if (window.innerWidth < 768) {
+                // Mobile-specific adjustments could go here
+            }
+        }
+
+        window.addEventListener('resize', handleMobileMenu);
+        handleMobileMenu();
+    </script>
+</body>
+</html>

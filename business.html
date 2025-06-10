@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizHaloUG | Global Business News Hub</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #000000; /* Black */
+            --secondary-color: #FF0000; /* Red */
+            --accent-color: #FFD700; /* Yellow */
+            --dark-color: #212121;
+            --light-color: #ffffff; /* White */
+            --text-color: #333;
+            --text-light: #757575;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .date-display {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+        }
+
+        .social-icons a:hover {
+            color: var(--white);
+        }
+
+        .main-header {
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            width: 300px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 0.6rem;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 0 1rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--white);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--accent-color);
+        }
+
+        .nav-links li.active a {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 2rem;
+            color: var(--white);
+            max-width: 70%;
+        }
+
+        .hero-category {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-excerpt {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .news-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-color);
+        }
+
+        .news-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .news-card:hover .news-card-img img {
+            transform: scale(1.05);
+        }
+
+        .news-card-content {
+            padding: 1.5rem;
+        }
+
+        .news-card-category {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .news-card-category.finance {
+            background-color: #4CAF50;
+        }
+
+        .news-card-category.technology {
+            background-color: #2196F3;
+        }
+
+        .news-card-category.uganda {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .news-card-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .news-card-excerpt {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .news-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #eee;
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+            color: var(--primary-color);
+        }
+
+        .trending-list {
+            list-style: none;
+        }
+
+        .trending-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+        }
+
+        .trending-item-img {
+            width: 80px;
+            height: 60px;
+            flex-shrink: 0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .trending-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .trending-item-content h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+        }
+
+        .trending-item-content span {
+            font-size: 0.7rem;
+            color: var(--text-light);
+        }
+
+        /* Market Data Widget */
+        .market-data-list {
+            list-style: none;
+        }
+
+        .market-data-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .market-data-item:last-child {
+            border-bottom: none;
+        }
+
+        .market-data-item .name {
+            font-weight: 600;
+        }
+
+        .market-data-item .value {
+            font-weight: 600;
+        }
+
+        .market-data-item .change.positive {
+            color: #4CAF50;
+        }
+
+        .market-data-item .change.negative {
+            color: #F44336;
+        }
+
+        /* Breaking News Ticker */
+        .breaking-news {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 0.8rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .breaking-news-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .breaking-news-label {
+            background-color: var(--primary-color);
+            padding: 0.3rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            color: var(--accent-color);
+        }
+
+        .ticker {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #bdbdbd;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #424242;
+            color: #bdbdbd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 350px;
+            }
+
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .hero-excerpt {
+                font-size: 1rem;
+            }
+
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="date-display">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container main-header">
+            <div class="header-content">
+                <div class="logo">Biz<span>HaloUG</span></div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search business news...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <div class="container">
+                <ul class="nav-links">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="localnews.html">Local News</a></li>
+                    <li><a href="worldnews.html">World News</a></li>
+                    <li><a href="sports.html">Sports</a></li>
+                    <li><a href="entertainment.html">Entertainment</a></li>
+                    <li><a href="business.html">Business</a></li>
+                    <li><a href="technology.html">Technology</a></li>
+                    <li><a href="health.html">Health</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breaking News Ticker -->
+    <div class="breaking-news">
+        <div class="container breaking-news-container">
+            <div class="breaking-news-label">Business Alert</div>
+            <div class="ticker">
+                <div class="ticker-content">
+                    Bank of Uganda maintains key interest rate at 9.5% • Uganda's inflation rate drops to 6.2% in latest figures • East African Crude Oil Pipeline project reaches 50% completion • Global markets rally as US Fed signals potential rate cuts • Uganda's coffee exports hit record $900 million in 2023 • African Development Bank approves $200 million loan for Uganda's infrastructure
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <div class="hero" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')">
+            <div class="hero-content">
+                <span class="hero-category">Global Markets</span>
+                <h1 class="hero-title">Uganda's Economy Projected to Grow by 6.3% in 2024 as Key Sectors Rebound</h1>
+                <p class="hero-excerpt">World Bank report highlights strong performance in agriculture, services and emerging oil sector despite global economic headwinds.</p>
+                <a href="#" class="btn">Read Analysis</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- News Section -->
+        <div class="news-section">
+            <h2 class="section-title">Latest Business News</h2>
+            <div class="news-grid">
+                <!-- News Card 1 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Bank of Uganda">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category uganda">Uganda</span>
+                        <h3 class="news-card-title">Bank of Uganda Introduces New Regulations for Digital Lenders to Protect Consumers</h3>
+                        <p class="news-card-excerpt">Central bank cracks down on predatory lending practices as mobile money loans surge to UGX 1.2 trillion.</p>
+                        <div class="news-card-meta">
+                            <span>By David Mugabe</span>
+                            <span>3 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 2 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="African business">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category">Africa</span>
+                        <h3 class="news-card-title">East African Community Approves Common External Tariff to Boost Regional Trade</h3>
+                        <p class="news-card-excerpt">New tariff structure aims to protect local industries while reducing costs for essential imports across member states.</p>
+                        <div class="news-card-meta">
+                            <span>By Amina Nalwoga</span>
+                            <span>6 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 3 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Global markets">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category">Global Markets</span>
+                        <h3 class="news-card-title">Dollar Weakens Against Major Currencies as Fed Pauses Rate Hikes</h3>
+                        <p class="news-card-excerpt">Global markets react positively to US central bank's decision, with emerging market currencies gaining ground.</p>
+                        <div class="news-card-meta">
+                            <span>By James Peterson</span>
+                            <span>9 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 4 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Uganda coffee">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category uganda">Uganda</span>
+                        <h3 class="news-card-title">Uganda's Coffee Exports to Europe Surge 35% Following New Trade Agreement</h3>
+                        <p class="news-card-excerpt">Farmers benefit from reduced tariffs as country positions itself as premium coffee producer in European markets.</p>
+                        <div class="news-card-meta">
+                            <span>By Sarah Kintu</span>
+                            <span>1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 5 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Fintech">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category technology">Technology</span>
+                        <h3 class="news-card-title">Ugandan Fintech Startup Secures $10 Million Funding to Expand Across Africa</h3>
+                        <p class="news-card-excerpt">Local mobile payments platform attracts international investors with innovative solutions for small businesses.</p>
+                        <div class="news-card-meta">
+                            <span>By Brian Mutebi</span>
+                            <span>1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 6 -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Oil pipeline">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category">Energy</span>
+                        <h3 class="news-card-title">East African Crude Oil Pipeline Creates 12,000 Jobs as Construction Accelerates</h3>
+                        <p class="news-card-excerpt">Major infrastructure project transforms local economies along pipeline route from Uganda to Tanzania.</p>
+                        <div class="news-card-meta">
+                            <span>By Robert Mwanje</span>
+                            <span>2 days ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Market Data Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Market Data</h3>
+                <ul class="market-data-list">
+                    <li class="market-data-item">
+                        <span class="name">USE All Share Index</span>
+                        <span class="value">1,842.35</span>
+                        <span class="change positive">+1.2%</span>
+                    </li>
+                    <li class="market-data-item">
+                        <span class="name">UGX/USD</span>
+                        <span class="value">3,752.50</span>
+                        <span class="change negative">-0.3%</span>
+                    </li>
+                    <li class="market-data-item">
+                        <span class="name">Brent Crude</span>
+                        <span class="value">$84.72</span>
+                        <span class="change positive">+2.1%</span>
+                    </li>
+                    <li class="market-data-item">
+                        <span class="name">Gold (oz)</span>
+                        <span class="value">$1,982.40</span>
+                        <span class="change positive">+0.8%</span>
+                    </li>
+                    <li class="market-data-item">
+                        <span class="name">Coffee (lb)</span>
+                        <span class="value">$2.15</span>
+                        <span class="change negative">-1.2%</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Trending Now Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Trending Now</h3>
+                <ul class="trending-list">
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1604594849809-dfedbc827105?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Uganda Airlines Announces New Direct Flights to Mumbai</h4>
+                            <span>3,482 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>African Development Bank Approves $500 Million for Regional Roads</h4>
+                            <span>2,915 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>MTN Uganda Reports 18% Profit Growth in Q2 2023</h4>
+                            <span>2,897 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>New Tax Proposals Spark Debate Among Business Leaders</h4>
+                            <span>2,542 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Uganda's Tourism Earnings Hit $1.5 Billion in 2023</h4>
+                            <span>2,326 shares</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Business Events Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Upcoming Events</h3>
+                <ul class="top-stories-list">
+                    <li class="top-story-item">
+                        <h4>Kampala Business Expo 2023</h4>
+                        <span>Oct 15-17 • UICC</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>East African Investment Summit</h4>
+                        <span>Nov 3-5 • Serena Hotel</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Uganda Bankers' Association Annual Meeting</h4>
+                        <span>Nov 12 • Speke Resort</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Agribusiness Forum: Financing Opportunities</h4>
+                        <span>Dec 1 • Virtual</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Taxation Workshop for SMEs</h4>
+                        <span>Dec 8 • URA Headquarters</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Uganda Business Focus Section -->
+    <div class="container">
+        <h2 class="section-title">Uganda Business Focus</h2>
+        <div class="news-grid">
+            <!-- Uganda Card 1 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1581092921461-39b2f2b8a450?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Manufacturing">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category uganda">Manufacturing</span>
+                    <h3 class="news-card-title">Government Launches $100 Million Industrial Park in Jinja to Boost Local Production</h3>
+                    <p class="news-card-excerpt">New facility expected to create 5,000 direct jobs and support import substitution strategy.</p>
+                    <div class="news-card-meta">
+                        <span>By Henry Ssekanjako</span>
+                        <span>1 day ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Uganda Card 2 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Transport">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category uganda">Infrastructure</span>
+                    <h3 class="news-card-title">Standard Gauge Railway Project Gets Green Light After China Funding Agreement</h3>
+                    <p class="news-card-excerpt">$2.3 billion project to connect Kampala to Malaba border expected to begin construction in Q1 2024.</p>
+                    <div class="news-card-meta">
+                        <span>By Paul Murungi</span>
+                        <span>2 days ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Uganda Card 3 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1520333789090-1afc82db536a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Agriculture">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category uganda">Agriculture</span>
+                    <h3 class="news-card-title">Uganda's Organic Cotton Exports Double as Global Demand for Sustainable Fibers Grows</h3>
+                    <p class="news-card-excerpt">Smallholder farmers benefit from premium prices as international brands seek eco-friendly materials.</p>
+                    <div class="news-card-meta">
+                        <span>By Grace Nalweyiso</span>
+                        <span>3 days ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Business Section -->
+    <div class="container">
+        <h2 class="section-title">Global Business</h2>
+        <div class="news-grid">
+            <!-- Global Card 1 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Global trade">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category">World Economy</span>
+                    <h3 class="news-card-title">WTO Forecasts Global Trade Growth to Slow to 1.7% in 2023 Amid Economic Uncertainty</h3>
+                    <p class="news-card-excerpt">Organization warns of potential fragmentation risks as geopolitical tensions reshape supply chains.</p>
+                    <div class="news-card-meta">
+                        <span>By Michael Johnson</span>
+                        <span>5 hours ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global Card 2 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tech">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category technology">Technology</span>
+                    <h3 class="news-card-title">Major Tech Companies Announce $50 Billion Investment in African Digital Infrastructure</h3>
+                    <p class="news-card-excerpt">Five-year plan aims to expand internet access and cloud services across the continent.</p>
+                    <div class="news-card-meta">
+                        <span>By Sarah Williams</span>
+                        <span>8 hours ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global Card 3 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Energy">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category">Energy</span>
+                    <h3 class="news-card-title">OPEC+ Agrees to Extend Production Cuts Through 2024 to Stabilize Oil Prices</h3>
+                    <p class="news-card-excerpt">Decision comes as global demand concerns persist despite recent price recovery.</p>
+                    <div class="news-card-meta">
+                        <span>By Robert Chen</span>
+                        <span>1 day ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>BizHaloUG</h3>
+                    <p>Your premier source for business news in Uganda and around the world. Delivering accurate, timely, and insightful coverage of markets, companies and economic trends.</p>
+                    <div class="social-icons" style="margin-top: 1rem;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Business Sectors</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Banking & Finance</a></li>
+                        <li><a href="#">Agriculture</a></li>
+                        <li><a href="#">Energy & Mining</a></li>
+                        <li><a href="#">Manufacturing</a></li>
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">Tourism</a></li>
+                        <li><a href="#">Real Estate</a></li>
+                        <li><a href="#">Transport & Logistics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Advertise</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Ethics Policy</a></li>
+                        <li><a href="#">Corrections</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Business Newsletters</h3>
+                    <p>Subscribe to our daily briefing on Uganda and global business news, market updates and economic analysis.</p>
+                    <form style="margin-top: 1rem;">
+                        <input type="email" placeholder="Your email address" style="width: 100%; padding: 0.6rem; border: 1px solid #424242; background: transparent; color: white; border-radius: 4px; margin-bottom: 0.5rem;">
+                        <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 BizHaloUG. All rights reserved. All business news, market data, and financial information are property of BizHaloUG unless otherwise noted.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // Current Date and Time
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', options);
+            document.getElementById('current-time').textContent = now.toLocaleTimeString('en-US');
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // Simple search functionality
+        document.querySelector('.search-bar button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-bar input').value;
+            if (searchTerm.trim() !== '') {
+                alert(`Searching for: ${searchTerm}`);
+                // In a real implementation, this would redirect to search results
+            }
+        });
+
+        // Make news cards clickable
+        document.querySelectorAll('.news-card').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function() {
+                // In a real implementation, this would redirect to the article page
+                alert(`Navigating to: ${this.querySelector('.news-card-title').textContent}`);
+            });
+        });
+
+        // Mobile menu toggle (would be more comprehensive in a real implementation)
+        function handleMobileMenu() {
+            if (window.innerWidth < 768) {
+                // Mobile-specific adjustments could go here
+            }
+        }
+
+        window.addEventListener('resize', handleMobileMenu);
+        handleMobileMenu();
+    </script>
+</body>
+</html>

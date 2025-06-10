@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Sports Hub | Worldwide Sports Coverage</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #1a1a2e; /* Dark blue */
+            --secondary-color: #16213e; /* Navy blue */
+            --accent-color: #e94560; /* Vibrant red */
+            --highlight-color: #f9a828; /* Gold/yellow */
+            --dark-color: #0f3460;
+            --light-color: #ffffff; /* White */
+            --text-color: #333;
+            --text-light: #757575;
+            --white: #ffffff;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--light-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background-color: #c2334d;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 0.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .date-display {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--highlight-color);
+            font-size: 1.1rem;
+        }
+
+        .social-icons a:hover {
+            color: var(--white);
+        }
+
+        .main-header {
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .search-bar {
+            display: flex;
+            width: 300px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 0.6rem;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-bar button {
+            padding: 0 1rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--white);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--highlight-color);
+        }
+
+        .nav-links li.active a {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 500px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
+        }
+
+        .hero-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 2rem;
+            color: var(--white);
+            max-width: 70%;
+        }
+
+        .hero-category {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .hero-title {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-excerpt {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .news-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid #eee;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-color: var(--highlight-color);
+        }
+
+        .news-card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .news-card:hover .news-card-img img {
+            transform: scale(1.05);
+        }
+
+        .news-card-content {
+            padding: 1.5rem;
+        }
+
+        .news-card-category {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .news-card-category.football {
+            background-color: #3a5fcd;
+        }
+
+        .news-card-category.basketball {
+            background-color: #e94560;
+        }
+
+        .news-card-category.rugby {
+            background-color: #008000;
+        }
+
+        .news-card-category.athletics {
+            background-color: #ff8c00;
+        }
+
+        .news-card-category.africa {
+            background-color: #f9a828;
+            color: var(--primary-color);
+        }
+
+        .news-card-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.3;
+        }
+
+        .news-card-excerpt {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .news-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid #eee;
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+            color: var(--primary-color);
+        }
+
+        .trending-list {
+            list-style: none;
+        }
+
+        .trending-item {
+            display: flex;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+        }
+
+        .trending-item-img {
+            width: 80px;
+            height: 60px;
+            flex-shrink: 0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .trending-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .trending-item-content h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+            line-height: 1.3;
+        }
+
+        .trending-item-content span {
+            font-size: 0.7rem;
+            color: var(--text-light);
+        }
+
+        /* Top Stories Widget */
+        .top-stories-list {
+            list-style: none;
+        }
+
+        .top-story-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .top-story-item:last-child {
+            border-bottom: none;
+        }
+
+        .top-story-item h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.2rem;
+            line-height: 1.4;
+        }
+
+        .top-story-item h4::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .top-story-item span {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            display: block;
+        }
+
+        /* League Standings Widget */
+        .standings-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .standings-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem;
+            text-align: left;
+        }
+
+        .standings-table td {
+            padding: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .standings-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .standings-table .team {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .standings-table .team-logo {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Breaking News Ticker */
+        .breaking-news {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 0.8rem 0;
+            margin-bottom: 2rem;
+        }
+
+        .breaking-news-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .breaking-news-label {
+            background-color: var(--primary-color);
+            padding: 0.3rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            color: var(--highlight-color);
+        }
+
+        .ticker {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+            color: var(--highlight-color);
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #bdbdbd;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--highlight-color);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #424242;
+            color: #bdbdbd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                max-width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .search-bar {
+                width: 100%;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                height: 350px;
+            }
+
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .hero-excerpt {
+                font-size: 1rem;
+            }
+
+            .top-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="date-display">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container main-header">
+            <div class="header-content">
+                <div class="logo">Global<span>SportsHub</span></div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for sports news...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <div class="container">
+                <ul class="nav-links">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="localnews.html">Local News</a></li>
+                    <li><a href="worldnews.html">World News</a></li>
+                    <li><a href="sports.html">Sports</a></li>
+                    <li><a href="entertainment.html">Entertainment</a></li>
+                    <li><a href="business.html">Business</a></li>
+                    <li><a href="technology.html">Technology</a></li>
+                    <li><a href="health.html">Health</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breaking News Ticker -->
+    <div class="breaking-news">
+        <div class="container breaking-news-container">
+            <div class="breaking-news-label">Breaking</div>
+            <div class="ticker">
+                <div class="ticker-content">
+                    Uganda Cranes qualify for AFCON after dramatic penalty shootout • Manchester City signs African star for record fee • NBA Finals: Celtics take 3-2 lead after overtime thriller • World Athletics Championships begin in Budapest • Rugby World Cup preparations intensify as warm-up matches announced
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <div class="hero" style="background-image: url('https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')">
+            <div class="hero-content">
+                <span class="hero-category">Football</span>
+                <h1 class="hero-title">Uganda Cranes Make History With Dramatic AFCON Qualification</h1>
+                <p class="hero-excerpt">The national team secured their spot in the 2023 Africa Cup of Nations with a thrilling penalty shootout victory over Ghana in the final qualifier.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- News Section -->
+        <div class="news-section">
+            <h2 class="section-title">Latest Sports News</h2>
+            <div class="news-grid">
+                <!-- News Card 1 - African Football -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="African football">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category africa">Africa</span>
+                        <h3 class="news-card-title">Morocco Becomes First African Nation to Reach World Cup Semifinals</h3>
+                        <p class="news-card-excerpt">The Atlas Lions continue their historic run with victory over Portugal, setting up semifinal clash with France.</p>
+                        <div class="news-card-meta">
+                            <span>By Ahmed Bello</span>
+                            <span>3 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 2 - NBA -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="NBA basketball">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category basketball">NBA</span>
+                        <h3 class="news-card-title">Jokic Leads Nuggets to First NBA Championship in Franchise History</h3>
+                        <p class="news-card-excerpt">The Serbian center dominates with triple-double as Denver defeats Miami in Game 5 to claim the title.</p>
+                        <div class="news-card-meta">
+                            <span>By Marcus Johnson</span>
+                            <span>6 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 3 - Ugandan Sports -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Uganda athletics">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category africa">Uganda</span>
+                        <h3 class="news-card-title">Joshua Cheptegei Defends World 10,000m Title in Dominant Fashion</h3>
+                        <p class="news-card-excerpt">The Ugandan long-distance star cruises to victory in Budapest, cementing his status as one of the greats.</p>
+                        <div class="news-card-meta">
+                            <span>By Grace Nakimera</span>
+                            <span>9 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 4 - Premier League -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Premier League">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category football">Premier League</span>
+                        <h3 class="news-card-title">Haaland Breaks Single-Season Scoring Record as City Clinch Title</h3>
+                        <p class="news-card-excerpt">The Norwegian striker nets his 36th goal in the campaign as Manchester City secure their third consecutive championship.</p>
+                        <div class="news-card-meta">
+                            <span>By James Wilson</span>
+                            <span>12 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 5 - Rugby -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1600679472829-3044539ce8ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Rugby">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category rugby">Rugby</span>
+                        <h3 class="news-card-title">South Africa's Rugby World Cup Squad Announced With Surprise Omissions</h3>
+                        <p class="news-card-excerpt">Springboks coach makes bold selections as defending champions prepare for title defense in France.</p>
+                        <div class="news-card-meta">
+                            <span>By Thomas Botha</span>
+                            <span>1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News Card 6 - Tennis -->
+                <div class="news-card">
+                    <div class="news-card-img">
+                        <img src="https://images.unsplash.com/photo-1544298621-a28c005444a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Tennis">
+                    </div>
+                    <div class="news-card-content">
+                        <span class="news-card-category">Tennis</span>
+                        <h3 class="news-card-title">Carlos Alcaraz Wins Wimbledon in Epic Final Against Djokovic</h3>
+                        <p class="news-card-excerpt">The Spanish teenager claims his second Grand Slam title after nearly five hours of breathtaking tennis.</p>
+                        <div class="news-card-meta">
+                            <span>By Maria Sanchez</span>
+                            <span>1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Trending Now Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Trending Now</h3>
+                <ul class="trending-list">
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Uganda's She Cranes Qualify for Netball World Cup</h4>
+                            <span>3,482 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Kipchoge Announces Plans to Defend Olympic Marathon Title</h4>
+                            <span>4,115 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1541532713592-79a0317b6b77?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>PSG Agrees World Record Fee for Nigerian Striker</h4>
+                            <span>3,597 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>Uganda Rugby Sevens Team Secures Olympic Qualification</h4>
+                            <span>3,242 shares</span>
+                        </div>
+                    </li>
+                    <li class="trending-item">
+                        <div class="trending-item-img">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80" alt="Trending news">
+                        </div>
+                        <div class="trending-item-content">
+                            <h4>CAF Announces New Format for Champions League</h4>
+                            <span>2,926 shares</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Premier League Standings Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Premier League Standings</h3>
+                <table class="standings-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Team</th>
+                            <th>Pts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td class="team">
+                                <img src="https://via.placeholder.com/20" alt="Man City" class="team-logo">
+                                Man City
+                            </td>
+                            <td>89</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="team">
+                                <img src="https://via.placeholder.com/20" alt="Arsenal" class="team-logo">
+                                Arsenal
+                            </td>
+                            <td>84</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td class="team">
+                                <img src="https://via.placeholder.com/20" alt="Man Utd" class="team-logo">
+                                Man Utd
+                            </td>
+                            <td>75</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="team">
+                                <img src="https://via.placeholder.com/20" alt="Newcastle" class="team-logo">
+                                Newcastle
+                            </td>
+                            <td>71</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td class="team">
+                                <img src="https://via.placeholder.com/20" alt="Liverpool" class="team-logo">
+                                Liverpool
+                            </td>
+                            <td>67</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Upcoming Matches Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Upcoming Matches</h3>
+                <ul class="top-stories-list">
+                    <li class="top-story-item">
+                        <h4>Uganda vs Algeria (AFCON Qualifier)</h4>
+                        <span>Football • Sat, Jun 10 • 4:00 PM EAT</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Warriors vs Heat (NBA Finals Game 4)</h4>
+                        <span>Basketball • Sun, Jun 11 • 2:30 AM EAT</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Kenya vs South Africa (Rugby Africa Cup)</h4>
+                        <span>Rugby • Sat, Jun 10 • 3:00 PM EAT</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>Djokovic vs Alcaraz (Wimbledon Final)</h4>
+                        <span>Tennis • Sun, Jun 11 • 4:00 PM EAT</span>
+                    </li>
+                    <li class="top-story-item">
+                        <h4>KCCA FC vs Vipers SC (Uganda Premier League)</h4>
+                        <span>Football • Fri, Jun 9 • 4:30 PM EAT</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- African Sports Section -->
+    <div class="container">
+        <h2 class="section-title">African Sports</h2>
+        <div class="news-grid">
+            <!-- African Sports Card 1 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="African football">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category africa">Football</span>
+                    <h3 class="news-card-title">CAF Announces Record-Breaking Broadcast Deal for African Competitions</h3>
+                    <p class="news-card-excerpt">The Confederation of African Football secures $500 million agreement to showcase continental tournaments worldwide.</p>
+                    <div class="news-card-meta">
+                        <span>By Kwame Asante</span>
+                        <span>1 day ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- African Sports Card 2 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="African athletics">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category africa">Athletics</span>
+                    <h3 class="news-card-title">Ethiopia Dominates World Cross Country Championships in Australia</h3>
+                    <p class="news-card-excerpt">East African runners claim six of nine available medals in Bathurst, continuing their distance running supremacy.</p>
+                    <div class="news-card-meta">
+                        <span>By Selamawit Gebre</span>
+                        <span>2 days ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- African Sports Card 3 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1600679472829-3044539ce8ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="African rugby">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category africa">Rugby</span>
+                    <h3 class="news-card-title">Namibia Qualifies for Rugby World Cup for Seventh Consecutive Time</h3>
+                    <p class="news-card-excerpt">The Welwitschias secure their place in France 2023 with comprehensive victory over Kenya in final qualifier.</p>
+                    <div class="news-card-meta">
+                        <span>By Johan van der Merwe</span>
+                        <span>3 days ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ugandan Sports Section -->
+    <div class="container">
+        <h2 class="section-title">Ugandan Sports</h2>
+        <div class="news-grid">
+            <!-- Ugandan Sports Card 1 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Ugandan football">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category africa">Football</span>
+                    <h3 class="news-card-title">FUFA Announces Plans for New National Stadium in Kampala</h3>
+                    <p class="news-card-excerpt">The football association reveals ambitious 60,000-seat facility project to be completed by 2026.</p>
+                    <div class="news-card-meta">
+                        <span>By David Ssempijja</span>
+                        <span>1 day ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ugandan Sports Card 2 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Ugandan athletics">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category africa">Athletics</span>
+                    <h3 class="news-card-title">Uganda Athletics Federation Launches Talent Development Program</h3>
+                    <p class="news-card-excerpt">New initiative aims to identify and nurture young runners across all regions of the country.</p>
+                    <div class="news-card-meta">
+                        <span>By Prossy Nalwanga</span>
+                        <span>2 days ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ugandan Sports Card 3 -->
+            <div class="news-card">
+                <div class="news-card-img">
+                    <img src="https://images.unsplash.com/photo-1600679472829-3044539ce8ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Ugandan rugby">
+                </div>
+                <div class="news-card-content">
+                    <span class="news-card-category africa">Basketball</span>
+                    <h3 class="news-card-title">City Oilers Claim 10th Straight National Basketball League Title</h3>
+                    <p class="news-card-excerpt">The Kampala-based dynasty continues with sweep of finals series against Namuwongo Blazers.</p>
+                    <div class="news-card-meta">
+                        <span>By Ronald Mutebi</span>
+                        <span>3 days ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Global Sports Hub</h3>
+                    <p>Your premier destination for comprehensive sports coverage from around the world, with special focus on African and Ugandan sports. Delivering accurate, timely, and engaging content across all platforms.</p>
+                    <div class="social-icons" style="margin-top: 1rem;">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Sports Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Football</a></li>
+                        <li><a href="#">Basketball</a></li>
+                        <li><a href="#">African Sports</a></li>
+                        <li><a href="#">Ugandan Sports</a></li>
+                        <li><a href="#">Athletics</a></li>
+                        <li><a href="#">Rugby</a></li>
+                        <li><a href="#">Tennis</a></li>
+                        <li><a href="#">Other Sports</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Leagues & Tournaments</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">English Premier League</a></li>
+                        <li><a href="#">NBA</a></li>
+                        <li><a href="#">Africa Cup of Nations</a></li>
+                        <li><a href="#">Uganda Premier League</a></li>
+                        <li><a href="#">World Athletics</a></li>
+                        <li><a href="#">Rugby World Cup</a></li>
+                        <li><a href="#">Grand Slam Tennis</a></li>
+                        <li><a href="#">Olympics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletters</h3>
+                    <p>Stay updated with our daily sports briefing delivered straight to your inbox.</p>
+                    <form style="margin-top: 1rem;">
+                        <input type="email" placeholder="Your email address" style="width: 100%; padding: 0.6rem; border: 1px solid #424242; background: transparent; color: white; border-radius: 4px; margin-bottom: 0.5rem;">
+                        <button type="submit" class="btn" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Global Sports Hub. All rights reserved. All sports news, photos, videos and graphics are property of Global Sports Hub unless otherwise noted.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // Current Date and Time
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', options);
+            document.getElementById('current-time').textContent = now.toLocaleTimeString('en-US');
+        }
+
+        setInterval(updateDateTime, 1000);
+        updateDateTime();
+
+        // Simple search functionality
+        document.querySelector('.search-bar button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-bar input').value;
+            if (searchTerm.trim() !== '') {
+                alert(`Searching for: ${searchTerm}`);
+                // In a real implementation, this would redirect to search results
+            }
+        });
+
+        // Make news cards clickable
+        document.querySelectorAll('.news-card').forEach(card => {
+            card.style.cursor = 'pointer';
+            card.addEventListener('click', function() {
+                // In a real implementation, this would redirect to the article page
+                alert(`Navigating to: ${this.querySelector('.news-card-title').textContent}`);
+            });
+        });
+
+        // Mobile menu toggle (would be more comprehensive in a real implementation)
+        function handleMobileMenu() {
+            if (window.innerWidth < 768) {
+                // Mobile-specific adjustments could go here
+            }
+        }
+
+        window.addEventListener('resize', handleMobileMenu);
+        handleMobileMenu();
+    </script>
+</body>
+</html>
